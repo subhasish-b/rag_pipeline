@@ -1,0 +1,11 @@
+num_sentence_chunk_size = 5
+top_n_results = 5
+embed_model_name = "sentence-transformers/all-mpnet-base-v2"
+collection_name = "concept_of_biology"
+pdf_path = r"./data/ConceptsofBiology.pdf"
+initial_page = 18
+final_page = 68
+llm_model_name = "microsoft/Phi-3-mini-128k-instruct" #r"./model/Phi-3-mini-128k-instruct/"   #"TheBloke/Mistral-7B-OpenOrca-GPTQ" #"lmsys/vicuna-7b-v1.5" # r"./model/models--lmsys--vicuna-7b-v1.5/" #"lmsys/vicuna-7b-v1.5"
+temperature = 0.7
+max_new_tokens=10000
+return_answer_only=True
