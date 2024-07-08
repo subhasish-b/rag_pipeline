@@ -57,7 +57,7 @@ class rag_pipeline():
                                             add_generation_prompt=True)
         return prompt
     
-    def ask(self, query,context, temperature = temperature, max_new_tokens = max_new_tokens, return_answer_only = return_answer_only):
+    def ask(self, query,context, temperature = temperature, max_new_tokens = max_new_tokens):
         """
         Takes a query, finds relevant resources/context and generates an answer to the query based on the relevant resources.
 
@@ -92,7 +92,11 @@ class rag_pipeline():
         response = self.tokenizer.batch_decode(output_answer, skip_special_tokens=True)[0]
 
         # Only return the answer without the context items
-        if return_answer_only:
-            return response
+        pages = [item["page_no"] for item in context]
+
+        app_response = {
+            "answer": response,
+            "source_page_no": pages
+        }
         
-        return response, context
+        return app_response
